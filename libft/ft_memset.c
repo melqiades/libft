@@ -10,4 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*memset(void *s, int c, size_t n);
+#include <stdio.h>
+void	*ft_memset(void *s, int c, size_t n)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < n )
+	{
+		((char*)s)[i] = c;
+		i++;
+	}
+	return(s);
+}
+
+int main (void)
+{
+	char	str[] = "Hello world";
+	char	*ptr;
+
+	ptr = ft_memset(str, '&', 3);
+	printf("%s\n", ptr);
+}
