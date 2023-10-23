@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                   :+:      :+:    :+:   */
+/*   ft_memcpy.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpesan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,26 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 
-void	*ft_memset(void *s, int c, size_t n)
+void	*memcpy(void *dest, const void *src, size_t n);
 {
 	size_t	i;
 
-	i = 0;
 	while (i < n)
 	{
-		((char *)s)[i] = c;
+		((char *)dest)[i] = ((char *)src)[i];
 		i++;
 	}
-	return (s);
-}
-
-int main (void)
-{
-	char	str[] = "Hello world";
-	char	*ptr;
-
-	ptr = ft_memset(str, '&', 3);
-	printf("%s\n", ptr);
+	return (dest);
 }

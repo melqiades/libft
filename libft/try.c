@@ -1,11 +1,16 @@
-#include <string.h>
+#include <bsd/string.h>
+#include <stdio.h>
 
 int main()
 {
-	char * str1 = "string Literal";
-	const char *str2 = "string Literal";
-	char source [] = "Sample string";
+	int	k = 5000;
+	char * src = "123456";
+	const char *str2 = "123";
+	char dest [] = "123";
 
-	strcpy(str1, source);
+	k = strlcat(dest, src, 9);
+	printf("text = %s, k = %d", dest, k);
+
+
 	//strcpy(str2, source);
 }

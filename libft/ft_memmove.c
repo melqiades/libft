@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                   :+:      :+:    :+:   */
+/*   ft_memmove.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpesan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,24 +12,23 @@
 
 #include <stdio.h>
 
-void	*ft_memset(void *s, int c, size_t n)
+void	*memmove(void *dest, const void *src, size_t n);
 {
 	size_t	i;
+	char*	buf;
 
-	i = 0;
 	while (i < n)
 	{
-		((char *)s)[i] = c;
+
+		((char *)buf)[i] = ((char *)src)[i];
 		i++;
 	}
-	return (s);
-}
+	i = 0;
+		while (i < n)
+	{
 
-int main (void)
-{
-	char	str[] = "Hello world";
-	char	*ptr;
-
-	ptr = ft_memset(str, '&', 3);
-	printf("%s\n", ptr);
+		((char *)des)[i] = ((char *)src)[i];
+		i++;
+	}
+	return (dest);
 }

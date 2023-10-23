@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                   :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpesan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,26 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-void	*ft_memset(void *s, int c, size_t n)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t	i;
+	size_t	j;
 
 	i = 0;
-	while (i < n)
+	j = 0;
+	while (src[j])
 	{
-		((char *)s)[i] = c;
-		i++;
+		j++;
 	}
-	return (s);
-}
-
-int main (void)
-{
-	char	str[] = "Hello world";
-	char	*ptr;
-
-	ptr = ft_memset(str, '&', 3);
-	printf("%s\n", ptr);
+	if (size != 0)
+	{
+		while (src[i] != 0 && (i < size - 1))
+		{
+			dest[i] = src[i];
+			i++;
+		}
+		dest[i] = 0;
+	}
+	return (j);
 }
