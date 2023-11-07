@@ -10,10 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
-void	*memcpy(void *dest, const void *src, size_t n);
+void	*memcpy(void *dest, const void *src, size_t n)
 {
-	size_t	i;
+		size_t	i;
 
 	while (i < n)
 	{
