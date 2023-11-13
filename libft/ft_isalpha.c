@@ -22,7 +22,7 @@ int ft_isalpha(int arg)
 		return(0);
 	}
 }
-
+/*
 int main(void)
 {
 	char	i;
@@ -30,4 +30,4 @@ int main(void)
 	{
 		printf(" for %c result is %d\n", i, ft_isalpha(i));
 	}
-}
+}*/

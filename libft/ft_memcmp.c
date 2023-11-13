@@ -17,21 +17,27 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	size_t	i;
 
 	i = 0;
-	while (i < n && (((char*)s1)[i] || ((char*)s2)[i]))
+	while (i < n)
 	{
-		if(((char*)s1)[i] == ((char*)s2)[i])
+		if (((char *)s1)[i] == ((char *)s2)[i])
 			i++;
 		else
-			return (((char*)s1)[i] - ((char*)s2)[i]);
+			return (-((char *)s1)[i] + ((char *)s2)[i]);
 	}
 	return (0);
 }
 
-// #include <stdio.h>
-// int	main (void)
-// {
-// 	char *ptr = "abcdef";
-// 	char *ptr2 = "abcd";
+/*
+#include <stdio.h>
+int	main (void)
+{
+	char *ptr = "abcdef";
+	char *ptr2 = "abcd";
 
-// 	printf("result: %d\n", ft_memcmp(ptr, ptr2, 8));
-// }
+	char s[] = {-128, 0, 127, 0};
+	char sCpy[] = {-128, 0, 127, 0};
+	char s2[] = {0, 0, 127, 0};
+	char s3[] = {0, 0, 42, 0};
+
+	printf("result: %d\n and for memcmp: %d", ft_memcmp(s, s2, 1),memcmp(s, s2, 1));
+}*/

@@ -23,7 +23,7 @@ int ft_isdigit(int arg)
         return(0);
     }
 }
-
+/*
 int main(void)
 {
 	char	i;
@@ -31,4 +31,4 @@ int main(void)
 	{
 		printf(" for %c result is %d\n", i, ft_isdigit(i));
 	}
-}
+}*/

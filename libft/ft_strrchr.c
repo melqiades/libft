@@ -24,8 +24,8 @@ size_t	ft_strlen(const char *s)
 
 char	*ft_strrchr(const char *s, int c)
 {
-	char *loc;
-	int	len;
+	char	*loc;
+	int		len;
 
 	loc = 0;
 	len = ft_strlen(s);

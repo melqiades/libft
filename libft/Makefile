@@ -52,5 +52,6 @@ re:			fclean all
 
 .PHONY:		all clean fclean re
 
+# delete this when you have all functions
 %.c:
 	touch $@

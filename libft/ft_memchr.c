@@ -30,7 +30,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	return (loc);
 }
 
-
+/*
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -47,4 +47,4 @@ int	main(void)
 
 	printf("the pointer is  %p \nthe original memchr is %p\n", ptr, ptr_or);
 }
-
+*/

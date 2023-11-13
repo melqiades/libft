@@ -40,10 +40,10 @@ char    *ft_strdup(const char *s)
     ptr[i] = 0;
     return (ptr);
 }
-
+/*
 int    main(void)
 {
     char *str = "Hello";
     
     printf("%s", ft_strdup(str));
-}
+}*/

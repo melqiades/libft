@@ -25,6 +25,7 @@ void	*ft_memset(void *s, int c, size_t n)
 	return (s);
 }
 
+/*
 int main (void)
 {
 	char	str[] = "Hello world";
@@ -32,4 +33,4 @@ int main (void)
 
 	ptr = ft_memset(str, '&', 3);
 	printf("%s\n", ptr);
-}
+}*/
