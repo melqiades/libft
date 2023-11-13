@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                   :+:      :+:    :+:   */
+/*   ft_itoa.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpesan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,53 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-
-size_t  ft_strlen(const char *s)
+char *ft_itoa(int n)
 {
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
-
-char	*ft_substr(char	const *s, unsigned	int start, size_t	len)
-{
-	char	*prt;
-	size_t	slen;
-	int		i;
-
-	i = 0;
-	slen = ft_strlen(s);
-	if (start > slen)
-	{
-		prt = malloc(sizeof(char));
-		*prt = 0;
-		return (prt);
-	}
-	if ((slen - start) < len)
-		prt = malloc((slen - start + 1) * sizeof(char));
-	else
-		prt = malloc((len + 1) * sizeof(char));
-	if (prt == NULL)
-		return (NULL);
-	while (s[start + i] && i < len)
-	{
-		prt[i] = s[start + i];
-		i++;
-	}
-	prt[i] = 0;
-	return (prt);
-}
-
-int	main(void)
-{
-	char	*str = "Hello World";
-	int		start = 4;
-	int		len = 3;
-
-	printf("%s", ft_substr(str, start, len));
+    
 }

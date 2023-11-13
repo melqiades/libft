@@ -17,7 +17,7 @@
 void	*ft_calloc(size_t nitems, size_t size)
 {
 	void *ptr;
-	int	i;
+	size_t	i;
 	
 	i = 0;
 	if (nitems == 0 || size == 0)

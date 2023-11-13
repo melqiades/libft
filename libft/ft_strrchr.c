@@ -11,18 +11,31 @@
 /* ************************************************************************** */
 
 #include <stdio.h>
+
+size_t	ft_strlen(const char *s)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
+
 char	*ft_strrchr(const char *s, int c)
 {
 	char *loc;
+	int	len;
 
 	loc = 0;
-	while (*s)
+	len = ft_strlen(s);
+	while (len > 0)
 	{
-		if (*s == c)
+		if (s[len] == c)
 		{
-			loc = (char*)s;
+			loc = (char *)s + len;
 		}
-		s++;
+		len--;
 	}
 	return (loc);
 }
@@ -37,4 +50,5 @@ int	main(void)
 	pos = ft_strrchr(str, fin);
 	printf("position is at %p", pos);
 	printf("\n the lettter is \"%s\"", pos);
-}*/
+}
+*/

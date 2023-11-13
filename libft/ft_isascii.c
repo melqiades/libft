@@ -23,7 +23,7 @@ int ft_isascii(int arg)
 		return(0);
 	}
 }
-
+/*
 int main(void)
 {
 	char	i;
@@ -32,4 +32,4 @@ int main(void)
 		printf(" for %c result is %d\n", i, ft_isascii(i));
 		printf(" pro š %d\n", ft_isascii("š"));
 	}
-}
+}*/
