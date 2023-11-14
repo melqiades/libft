@@ -22,7 +22,7 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
- int	ft_strncmp(const char *s1, const char *s2, size_t n)
+ int	ft_strncmpstr(const char *s1, const char *s2, size_t n)
  {
 	size_t	i;
 
@@ -37,36 +37,59 @@ size_t	ft_strlen(const char *s)
 	return (0);
  }
 
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+{
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	j = 0;
+	while (src[j])
+	{
+		j++;
+	}
+	if (size != 0)
+	{
+		while (src[i] != 0 && (i < size - 1))
+		{
+			dst[i] = src[i];
+			i++;
+		}
+		dst[i] = 0;
+	}
+	return (j);
+}
+
 char *ft_strnstr(const char *big, const char *little, size_t len)
 {
     size_t  llen;
-    char    *ret;
+    char    ret[len];
     int     i;
 
     llen = ft_strlen(little);
-    ret = (char*)big;
+    ft_strlcpy(ret,(char*)big, (len + 1) );
     i = 0;
-    if (llen > len || !(big)|| !(little))
+    if (llen > len)
         return (NULL);
-    if (llen == 0 || !(little))
-        return (ret);
-    while (ret[i] && !(len - i < llen))
+    if (llen == 0)
+        return ((char*)big);
+    while (ret[i])
     {
-        if (!(ft_strncmp((ret + i), little, llen)))
-            return (ret + i);
-        i++;
+        if (!(ft_strncmpstr((ret + i), little, llen)))
+            return ((char*)big + i);
+        else
+            i++;
     }
     return (NULL);
 }
-
 /*
 #include <stdio.h>
 int main(void)
 {
 	char haystack[30] = "aaabcabcd";
-	char needle[10] = "ab";
+	char needle[10] = "aabc";
 	char * empty = (char*)"";
 
-    printf("%s", ft_strnstr(haystack, "ab", 3));
+    printf("%s", ft_strnstr(haystack, "aaabc", 5));
 
 }*/

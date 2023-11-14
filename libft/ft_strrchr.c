@@ -24,31 +24,38 @@ size_t	ft_strlen(const char *s)
 
 char	*ft_strrchr(const char *s, int c)
 {
-	char	*loc;
-	int		len;
+	char			*loc;
+	int				len;
+	unsigned char	k;
 
 	loc = 0;
 	len = ft_strlen(s);
-	while (len > 0)
+	k = c;
+	if (s[len] == k)
 	{
-		if (s[len] == c)
+		loc = (char *)s + len;
+		return (loc);
+	}
+	while (len > -1)
+	{
+		if (s[len] == k)
 		{
 			loc = (char *)s + len;
+			return (loc);
 		}
 		len--;
 	}
 	return (loc);
 }
-
 /*
 int	main(void)
 {
 	char fin = 'L';
 	char *str = "ao    dLfkj";
 	char * pos;
+	char s[] = "tripouille";
 
-	pos = ft_strrchr(str, fin);
+	pos = ft_strrchr(s, 'l');
 	printf("position is at %p", pos);
 	printf("\n the lettter is \"%s\"", pos);
-}
-*/
+}*/
