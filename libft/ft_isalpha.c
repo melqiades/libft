@@ -11,15 +11,16 @@
 /* ************************************************************************** */
 
 #include <stdio.h>
-int ft_isalpha(int arg)
+
+int	ft_isalpha(int arg)
 {
-	if((arg >= 'a' && arg <= 'z') || (arg >= 'A' && arg <= 'Z'))
+	if ((arg >= 'a' && arg <= 'z') || (arg >= 'A' && arg <= 'Z'))
 	{
-		return(1);
+		return (1);
 	}
 	else
 	{
-		return(0);
+		return (0);
 	}
 }
 /*

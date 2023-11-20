@@ -16,20 +16,20 @@
 
 void	*ft_calloc(size_t nitems, size_t size)
 {
-	void *ptr;
+	void	*ptr;
 	size_t	i;
-	
+
 	i = 0;
 	if (nitems == 0 || size == 0)
-		return(NULL);
+		return (NULL);
 	if (nitems > (INT_MAX / size))
-		return(NULL);
+		return (NULL);
 	ptr = malloc(nitems * size);
 	if (ptr == NULL)
 		return (NULL);
 	while (i < (nitems * size))
 	{
-		((char*)ptr)[i] = 0;
+		((char *)ptr)[i] = 0;
 		i++;
 	}
 	return (ptr);

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                   :+:      :+:    :+:   */
+/*   ft_substr.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpesan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,36 +10,54 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+size_t	ft_strlen(const char *s)
 {
 	size_t	i;
 
 	i = 0;
-	while (i < n)
+	while (s[i])
+		i++;
+	return (i);
+}
+
+char	*ft_substr(char	const *s, unsigned	int start, size_t	len)
+{
+	char	*prt;
+	size_t	slen;
+	size_t	i;
+
+	i = 0;
+	slen = ft_strlen(s);
+	if (start > slen)
 	{
-		if (((char *)s1)[i] == ((char *)s2)[i])
-			i++;
-		else
-			return (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]);
+		prt = malloc(sizeof(char));
+		*prt = 0;
+		return (prt);
 	}
-	return (0);
+	if ((slen - start) < len)
+		prt = malloc((slen - start + 1) * sizeof(char));
+	else
+		prt = malloc((len + 1) * sizeof(char));
+	if (prt == NULL)
+		return (NULL);
+	while (s[start + i] && i < len)
+	{
+		prt[i] = s[start + i];
+		i++;
+	}
+	prt[i] = 0;
+	return (prt);
 }
 
 /*
-#include <stdio.h>
-int	main (void)
+int	main(void)
 {
-	char *ptr = "t\200";
-	char *ptr2 = "t\0";
-	int	k = 2;
+	char	*str = "Hello World";
+	int		start = 4;
+	int		len = 3;
 
-	char s[] = {-128, 0, 127, 0};
-	char sCpy[] = {-128, 0, 127, 0};
-	char s2[] = {0, 0, 127, 0};
-	char s3[] = {0, 0, 42, 0};
-
-printf("rslt: %d\n,for memcmp: %d",ft_memcmp(ptr,ptr2, k),memcmp(ptr, ptr2, k));
-}
-*/
+	printf("%s", ft_substr(str, start, len));
+}*/

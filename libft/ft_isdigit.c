@@ -12,16 +12,16 @@
 
 #include <stdio.h>
 
-int ft_isdigit(int arg)
+int	ft_isdigit(int arg)
 {
-    if (arg <='9' && arg >='0')
-    {
-        return(1);
-    }
-    else
-    {
-        return(0);
-    }
+	if (arg <= '9' && arg >= '0')
+	{
+		return (1);
+	}
+	else
+	{
+		return (0);
+	}
 }
 /*
 int main(void)

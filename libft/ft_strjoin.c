@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                   :+:      :+:    :+:   */
+/*   ft_strjoin.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpesan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,36 +10,50 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+size_t	ft_strlen(const char *s)
 {
 	size_t	i;
 
 	i = 0;
-	while (i < n)
+	while (s[i])
+		i++;
+	return (i);
+}
+
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	int		i;
+	int		j;
+	int		slen;
+	char	*res;
+
+	i = 0;
+	j = 0;
+	slen = ft_strlen(s1) + ft_strlen(s2);
+	res = malloc((slen + 1) * sizeof(char));
+	while (s1[i])
 	{
-		if (((char *)s1)[i] == ((char *)s2)[i])
-			i++;
-		else
-			return (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]);
+		res[i] = s1[i];
+		i++;
 	}
-	return (0);
+	while (s2[i])
+	{
+		res[i] = s2[j];
+		i++;
+		j++;
+	}
+	res[i] = 0;
+	return (res);
 }
 
 /*
-#include <stdio.h>
 int	main (void)
 {
-	char *ptr = "t\200";
-	char *ptr2 = "t\0";
-	int	k = 2;
+	char	*s1 = "One";
+	char	*s2 = "Two";
 
-	char s[] = {-128, 0, 127, 0};
-	char sCpy[] = {-128, 0, 127, 0};
-	char s2[] = {0, 0, 127, 0};
-	char s3[] = {0, 0, 42, 0};
-
-printf("rslt: %d\n,for memcmp: %d",ft_memcmp(ptr,ptr2, k),memcmp(ptr, ptr2, k));
-}
-*/
+	printf("%s", ft_strjoin(s1, s2));
+}*/

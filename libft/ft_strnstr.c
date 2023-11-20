@@ -22,41 +22,41 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
- int	ft_strncmp(const char *s1, const char *s2, size_t n)
- {
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
+{
 	size_t	i;
 
 	i = 0;
 	while (i < n && (s1[i] || s2[i]))
 	{
-		if(s1[i] == s2[i])
+		if (s1[i] == s2[i])
 			i++;
 		else
 			return (s1[i] - s2[i]);
 	}
 	return (0);
- }
+}
 
-char *ft_strnstr(const char *big, const char *little, size_t len)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-    size_t  llen;
-    char    *ret;
-    int     i;
+	size_t	llen;
+	char	*ret;
+	int		i;
 
-    llen = ft_strlen(little);
-    ret = (char*)big;
-    i = 0;
-    if (llen > len || !(big)|| !(little))
-        return (NULL);
-    if (llen == 0 || !(little))
-        return (ret);
-    while (ret[i] && !(len - i < llen))
-    {
-        if (!(ft_strncmp((ret + i), little, llen)))
-            return (ret + i);
-        i++;
-    }
-    return (NULL);
+	llen = ft_strlen(little);
+	ret = (char *)big;
+	i = 0;
+	if (llen > len || !(big) || !(little))
+		return (NULL);
+	if (llen == 0 || !(little))
+		return (ret);
+	while (ret[i] && !(len - i < llen))
+	{
+		if (!(ft_strncmp((ret + i), little, llen)))
+			return (ret + i);
+		i++;
+	}
+	return (NULL);
 }
 
 /*
@@ -67,6 +67,6 @@ int main(void)
 	char needle[10] = "ab";
 	char * empty = (char*)"";
 
-    printf("%s", ft_strnstr(haystack, "ab", 3));
+		printf("%s", ft_strnstr(haystack, "ab", 3));
 
 }*/

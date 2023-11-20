@@ -12,40 +12,39 @@
 
 #include <stdio.h>
 
-int ft_isdigit(int arg)
+int	ft_isdigit(int arg)
 {
-    if (arg <='9' && arg >='0')
-    {
-        return(1);
-    }
-    else
-    {
-        return(0);
-    }
-}
-
-int ft_isalpha(int arg)
-{
-	if((arg >= 'a' && arg <= 'z') || (arg >= 'A' && arg <= 'Z'))
+	if (arg <= '9' && arg >= '0')
 	{
-		return(1);
+		return (1);
 	}
 	else
 	{
-		return(0);
+		return (0);
 	}
 }
 
-
-int ft_isalnum(int arg)
+int	ft_isalpha(int arg)
 {
-	if(ft_isdigit(arg) || ft_isalpha(arg))
+	if ((arg >= 'a' && arg <= 'z') || (arg >= 'A' && arg <= 'Z'))
 	{
-		return(1);
+		return (1);
 	}
 	else
 	{
-		return(0);
+		return (0);
+	}
+}
+
+int	ft_isalnum(int arg)
+{
+	if (ft_isdigit(arg) || ft_isalpha(arg))
+	{
+		return (1);
+	}
+	else
+	{
+		return (0);
 	}
 }
 /*

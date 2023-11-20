@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                   :+:      :+:    :+:   */
+/*   ft_strtrim.c                                   :+:      :+:    :+:       */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpesan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,36 +10,64 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include <stdlib.h>
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+size_t	ft_strlen(const char *s)
 {
 	size_t	i;
 
 	i = 0;
-	while (i < n)
-	{
-		if (((char *)s1)[i] == ((char *)s2)[i])
-			i++;
-		else
-			return (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]);
-	}
-	return (0);
+	while (s[i])
+		i++;
+	return (i);
 }
 
-/*
-#include <stdio.h>
-int	main (void)
+char	*ft_strdup(const char *s)
 {
-	char *ptr = "t\200";
-	char *ptr2 = "t\0";
-	int	k = 2;
+	char	*ptr;
+	int		i;
 
-	char s[] = {-128, 0, 127, 0};
-	char sCpy[] = {-128, 0, 127, 0};
-	char s2[] = {0, 0, 127, 0};
-	char s3[] = {0, 0, 42, 0};
-
-printf("rslt: %d\n,for memcmp: %d",ft_memcmp(ptr,ptr2, k),memcmp(ptr, ptr2, k));
+	i = 0;
+	ptr = malloc((ft_strlen(s) + 1) * sizeof(char));
+	if (ptr == NULL)
+		return (NULL);
+	while (s[i])
+	{
+		ptr[i] = s[i];
+		i++;
+	}
+	ptr[i] = 0;
+	return (ptr);
 }
-*/
+
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	char	*ret;
+	int		len;
+
+	len = ft_strlen(s1);
+	ret = ft_strdup(s1);
+	while (*set)
+	{
+		if (*set == *s1)
+		{
+			ret = ret + 1;
+		}
+		if (*set == s1[len - 1])
+		{
+			ret[len - 1] = 0;
+		}
+		set++;
+	}
+	return (ret);
+}
+/*
+#include<stdio.h>
+
+int	main(void)
+{
+	char* s = "Hello";
+	char* set = "o H";
+
+	printf("%s", ft_strtrim(s, set));
+}*/
