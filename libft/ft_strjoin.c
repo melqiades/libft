@@ -39,7 +39,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		res[i] = s1[i];
 		i++;
 	}
-	while (s2[i])
+	while (s2[j])
 	{
 		res[i] = s2[j];
 		i++;
@@ -52,8 +52,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 /*
 int	main (void)
 {
-	char	*s1 = "One";
-	char	*s2 = "Two";
+	char	*s1 = "abcd";
+	char	*s2 = "efghi";
 
 	printf("%s", ft_strjoin(s1, s2));
 }*/

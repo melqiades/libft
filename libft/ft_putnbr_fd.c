@@ -14,43 +14,67 @@
 #include <stdio.h>
 #include <fcntl.h>
 
-#include <unistd.h>
+// void	ft_putnbr_fd(int n, int fd)
+// {
+// 	int		i;
+// 	char	pptr[11];
+// 	int		is_neg;
 
-void ft_putnbr_fd(int n, int fd)
+// 	i = 0;
+// 	if (n < 0)
+// 	{
+// 		write(fd, "-", 1);
+// 		n = -n;
+// 	}
+// 	if (n < 10)
+// 		pptr[i] = n + 48;
+// 	while (n > 0)
+// 	{
+// 		pptr[i] = ((n % 10) + 48);
+// 		n = n / 10;
+// 		i++;
+// 	}
+// 	while (i >= 0)
+// 	{
+// 		write(fd, &(pptr[i--]), 1);
+// 	}
+// }
+
+void	ft_putnbr_fd(int n, int fd)
 {
-    int i;
-    char    pptr[11];
-
-    i = 0;
-    if (n < 0)
-    {
-        write(fd, "-", 1);
-        n = - n;
-    }
-
-    if (n < 10)
-        pptr[i] = n + 48;
-    while (n > 0)
-    {
-        pptr[i] = ((n % 10) + 48);
-        n = n / 10;
-        i++;
-    }
-    while (i > 0)
-    {
-        write(fd, &(pptr[i - 1]), 1);
-        i--;
-    }
+	char	prnt;
+	if (n == -2147483648)
+	{
+		write(fd, "-2147483648", 11);
+		return ;
+	}
+	if (n < 0)
+	{
+		prnt = '-';
+		write(fd, &prnt, 1);
+		n = -n;
+	}
+	if (n > 9)
+	{
+		ft_putnbr_fd(n / 10, fd);
+		ft_putnbr_fd(n % 10, fd);
+	}
+	else
+	{
+		prnt = n + '0';
+		write(fd, &prnt, 1);
+	}
 }
 /*
 int main (void)
 {
-    int    s = -235;
-    int     fd = open("foo.txt", O_RDWR | O_CREAT);
-    char    k[20];
+	int    s = 256;
+	int     fd = open("foo.txt", O_RDWR | O_CREAT);
+	char    k[20] = {0};
 
-    ft_putnbr_fd(s, fd);
-    lseek(fd, 0, SEEK_SET);
-    read(fd, k, 6);
-    printf("this is what we have %s", k);
+	ft_putnbr_fd(s, fd);
+	lseek(fd, 0, SEEK_SET);
+	read(fd, k, 6);
+	k[7] = 0;
+	printf("this is what we have %s", k);
 }*/

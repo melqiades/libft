@@ -24,18 +24,17 @@ void ft_putstr_fd(char *s, int fd)
 			write(fd, s, 1);
 			s++;
 		}
-	write(fd, s, 1);
 }
 /*
 int main (void)
 {
-	char    *s = "Hello";
-	int     fd = open("foo.txt", O_RDWR | O_CREAT);
-	char    k[20];
+	char    *s = "abcd\nsfe\nsfe\n";
+	int     fd = open("foo.txt", O_RDWR | O_CREAT, 0644);
+	char    k[20] = {0};
 
 	ft_putstr_fd(s, fd);
 	lseek(fd, 0, SEEK_SET);
-	read(fd, k, 6);
-	printf("this is what we habve %s", k);
-
+	read(fd, k, 20);
+	printf("this is what we have %s", k);
+	close(fd);
 }*/
