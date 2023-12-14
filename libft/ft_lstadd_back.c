@@ -1,38 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                   :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lpesan <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: lpesan <lpesan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 13:50:48 by lpesan            #+#    #+#             */
-/*   Updated: 2023/09/07 14:33:12 by lpesan           ###   ########.fr       */
+/*   Updated: 2023/12/14 23:42:03 by lpesan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	char	*ptr;
-	int		i;
+	t_list	*last;
 
-	i = 0;
-	ptr = malloc((ft_strlen(s) + 1) * sizeof(char));
-	if (ptr == NULL)
-		return (NULL);
-	while (s[i])
-	{
-		ptr[i] = s[i];
-		i++;
-	}
-	ptr[i] = 0;
-	return (ptr);
+	last = ft_lstlast(*lst);
+	if (!last)
+		*lst = new;
+	else
+		last->next = new;
 }
 /*
-int    main(void)
+#include <stdio.h>
+int main(void)
 {
-	char *str = "Hello";
+	t_list  *k;
+	t_list  *l;
+	t_list  *new;
+	char    hello[] = "hello";
 	
-	printf("%s", ft_strdup(str));
+	k = malloc(sizeof(t_list));
+	l = malloc(sizeof(t_list));
+	new = malloc(sizeof(t_list));
+
+	l->content = hello;
+	k->next = l;
+	ft_lstadd_back(&k, new);
+	printf("here %p\n %p", l->next, new);
 }*/

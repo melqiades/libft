@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                   :+:      :+:    :+:   */
+/*   ft_lstnew.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpesan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,63 +12,22 @@
 
 #include "libft.h"
 
-int	ft_toklen(char const *s, char c)
+t_list	*ft_lstnew(void *content)
 {
-	int	ret;
+	t_list	*new_node;
 
-	ret = 0;
-	while (*s)
-	{
-		if (*s != c)
-		{
-			ret++;
-			while (*s != c && *s)
-				s++;
-		}
-		else
-			s++;
-	}
-	return (ret);
-}
-
-char	**ft_split(char const *s, char c)
-{
-	char	**ret;
-	int		len;
-	int		i;
-
-	i = 0;
-	ret = malloc(sizeof(char *) * ((ft_toklen(s, c)) + 1));
-	if (ret == NULL)
+	new_node = malloc(sizeof(t_list));
+	if (!(new_node))
 		return (NULL);
-	while (*s)
-	{
-		if (*s != c)
-		{
-			len = 0;
-			while (*s && *s != c)
-			{
-				len++;
-				s++;
-			}
-			(ret[i++]) = ft_substr(s - len, 0, len);
-		}
-		else
-			s++;
-	}
-	ret[i] = 0;
-	return (ret);
+	new_node->content = content;
+	new_node->next = NULL;
+	return (new_node);
 }
 /*
-#include <stdio.h>
-
-int main(void)
+int main()
 {
-	char *s = "HeXXXlOO";
-	char c = 'X';
-	char **ret;
-	ret = ft_split(s, c);
-	//printf ("%d",ret);
+	char	*k = "Hello";
+	t_list	*noder;
 
-	printf("%s \n%s\n", ret[0], ret[1]);
+	noder = ft_lstnew(k);
 }*/

@@ -12,16 +12,6 @@
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
-
 void	ft_strrev(char *str)
 {
 	int		i;
@@ -38,28 +28,6 @@ void	ft_strrev(char *str)
 		i++;
 	}
 }
-
-void	*ft_calloc(size_t nitems, size_t size)
-{
-	void	*ptr;
-	size_t	i;
-
-	i = 0;
-	if (nitems == 0 || size == 0)
-		return (NULL);
-	if (nitems > (INT_MAX / size))
-		return (NULL);
-	ptr = malloc(nitems * size);
-	if (ptr == NULL)
-		return (NULL);
-	while (i < (nitems * size))
-	{
-		((char *)ptr)[i] = 0;
-		i++;
-	}
-	return (ptr);
-}
-
 
 int	ft_abs(int n)
 {

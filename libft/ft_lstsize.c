@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                   :+:      :+:    :+:   */
+/*   ft_lstsize.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpesan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,63 +12,32 @@
 
 #include "libft.h"
 
-int	ft_toklen(char const *s, char c)
+int	ft_lstsize(t_list *lst)
 {
-	int	ret;
-
-	ret = 0;
-	while (*s)
-	{
-		if (*s != c)
-		{
-			ret++;
-			while (*s != c && *s)
-				s++;
-		}
-		else
-			s++;
-	}
-	return (ret);
-}
-
-char	**ft_split(char const *s, char c)
-{
-	char	**ret;
-	int		len;
-	int		i;
+	int	i;
 
 	i = 0;
-	ret = malloc(sizeof(char *) * ((ft_toklen(s, c)) + 1));
-	if (ret == NULL)
-		return (NULL);
-	while (*s)
+	while (lst)
 	{
-		if (*s != c)
-		{
-			len = 0;
-			while (*s && *s != c)
-			{
-				len++;
-				s++;
-			}
-			(ret[i++]) = ft_substr(s - len, 0, len);
-		}
-		else
-			s++;
+		lst = lst->next;
+		i++;
 	}
-	ret[i] = 0;
-	return (ret);
+	return (i);
 }
+
 /*
 #include <stdio.h>
-
 int main(void)
 {
-	char *s = "HeXXXlOO";
-	char c = 'X';
-	char **ret;
-	ret = ft_split(s, c);
-	//printf ("%d",ret);
+	t_list  *k;
+	t_list  *l;
+	char    hello[] = "hello";
+	
+	k = malloc(sizeof(t_list));
+	l = malloc(sizeof(t_list));
 
-	printf("%s \n%s\n", ret[0], ret[1]);
+	l->content = hello;
+	k->next = l;
+
+	printf("here %d\n", ft_lstsize(k));
 }*/

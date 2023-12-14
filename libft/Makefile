@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lpesan <marvin@42.fr>                      +#+  +:+       +#+         #
+#    By: lpesan <lpesan@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/27 21:33:59 by lpesan            #+#    #+#              #
-#    Updated: 2023/09/27 21:34:01 by lpesan           ###   ########.fr        #
+#    Updated: 2023/12/14 23:52:24 by lpesan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,15 +43,19 @@ ${NAME}:	${OBJS}
 			${LIB} ${NAME}
 
 clean:
-			rm -f ${OBJS}
+			rm -f ${OBJS} ${BONUS_OBJ}
 
 fclean:		clean
 			rm -f ${NAME}
 
 re:			fclean all
 
+BONUS_SRC = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
+BONUS_OBJ = $(BONUS_SRC:.c=.o)
+
+bonus: $(OBJS) $(BONUS_OBJ)
+		$(AR) $(NAME) $(OBJS) $(BONUS_OBJ)
+		$(LIB) $(NAME)
+
 .PHONY:		all clean fclean re
 
-# delete this when you have all functions
-	%.c:
-	touch $@
