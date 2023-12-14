@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putenbr_fd.c                                   :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpesan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,39 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
-#include <fcntl.h>
-
-// void	ft_putnbr_fd(int n, int fd)
-// {
-// 	int		i;
-// 	char	pptr[11];
-// 	int		is_neg;
-
-// 	i = 0;
-// 	if (n < 0)
-// 	{
-// 		write(fd, "-", 1);
-// 		n = -n;
-// 	}
-// 	if (n < 10)
-// 		pptr[i] = n + 48;
-// 	while (n > 0)
-// 	{
-// 		pptr[i] = ((n % 10) + 48);
-// 		n = n / 10;
-// 		i++;
-// 	}
-// 	while (i >= 0)
-// 	{
-// 		write(fd, &(pptr[i--]), 1);
-// 	}
-// }
+#include "libft.h"
 
 void	ft_putnbr_fd(int n, int fd)
 {
 	char	prnt;
+
 	if (n == -2147483648)
 	{
 		write(fd, "-2147483648", 11);

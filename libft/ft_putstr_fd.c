@@ -10,21 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
-#include <fcntl.h>
-#include <stddef.h>
+#include "libft.h"
 
-void ft_putstr_fd(char *s, int fd)
+void	ft_putstr_fd(char *s, int fd)
 {
-	if(!s)
+	if (!s)
 		return ;
 	while (*s)
-		{
-			write(fd, s, 1);
-			s++;
-		}
+	{
+		write(fd, s, 1);
+		s++;
+	}
 }
+
 /*
 int main (void)
 {

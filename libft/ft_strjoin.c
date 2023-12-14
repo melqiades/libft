@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
 size_t	ft_strlen(const char *s)
 {
@@ -33,6 +32,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	i = 0;
 	j = 0;
 	slen = ft_strlen(s1) + ft_strlen(s2);
+	if (!s1 || !s2)
+		return (NULL);
 	res = malloc((slen + 1) * sizeof(char));
 	while (s1[i])
 	{
@@ -52,8 +53,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 /*
 int	main (void)
 {
-	char	*s1 = "abcd";
-	char	*s2 = "efghi";
+	char	*s1 = "";
+	char	*s2 = "";
 
 	printf("%s", ft_strjoin(s1, s2));
 }*/

@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
 #include "libft.h"
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
@@ -25,13 +23,13 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 		return (NULL);
 	slen = ft_strlen(s);
 	res = malloc((slen + 1) * sizeof(char));
-	if(!(res))
+	if (!(res))
 		return (NULL);
-	while(s[i])
+	while (s[i])
 	{
 		res[i] = f(i, s[i]);
 		i++;
 	}
 	res[i] = 0;
-	return(res);
+	return (res);
 }
