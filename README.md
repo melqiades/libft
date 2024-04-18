@@ -1,3 +1,5 @@
+<img src="https://github.com/melqiades/libft/assets/142016602/70440a91-e4bc-4733-884e-ec42e23ac239" width = 15%>
+
 # libft
 
 A reimplementation of standard C library functions created as part of the 42 curriculum.
